@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceID - Reconocimiento Facial</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome para los iconos de redes sociales del Footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de colores exactos del diseño -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d6efd', /* Azul brillante de los botones */
+                        darkBg: '#0f172a',  /* Azul muy oscuro del fondo */
+                        cardBg: '#f8fafc'   /* Gris súper claro para las tarjetas */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-white">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="bg-white shadow-sm border-b border-gray-100 relative z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="img/logo-faceid.svg" alt="FaceID Logo" class="h-8 md:h-10">
+                <span class="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">FaceID</span>
+            </div>
+            
+            <!-- Botón de Menú Móvil (Hamburguesa) -->
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 border border-gray-200 rounded text-primary focus:outline-none focus:ring-2 focus:ring-primary">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <!-- Enlaces centrales (Ocultos en móvil, visibles en escritorio) -->
+            <nav class="hidden md:flex space-x-8 text-gray-600 font-medium">
+                <a href="#" class="hover:text-primary transition">Inicio</a>
+                <a href="#" class="hover:text-primary transition">Servicios</a>
+                <a href="#" class="hover:text-primary transition">Contacto</a>
+            </nav>
+
+            <!-- Botón de acción (Oculto en móvil, visible en escritorio) -->
+            <a href="#" class="hidden md:inline-block bg-primary text-white px-6 py-2.5 rounded hover:bg-blue-700 transition font-medium shadow-sm">
+                Iniciar Sesión
+            </a>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg">
+            <nav class="flex flex-col px-6 py-4 space-y-4 text-center">
+                <a href="#" class="text-gray-800 font-medium hover:text-primary">Inicio</a>
+                <a href="#" class="text-gray-800 font-medium hover:text-primary">Servicios</a>
+                <a href="#" class="text-gray-800 font-medium hover:text-primary">Contacto</a>
+                <a href="#" class="bg-primary text-white px-6 py-2 rounded font-medium mt-4 inline-block mx-auto">Iniciar Sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL (HERO) -->
+    <!-- En móvil el fondo abarca toda la sección, en escritorio se divide con la imagen -->
+    <section class="bg-darkBg text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <!-- Textos -->
+            <div class="w-full md:w-1/2 text-left">
+                <h1 class="text-3xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+                    Reconocimiento<br>Facial
+                </h1>
+                <p class="text-base md:text-xl text-gray-300 mb-6 md:mb-8 max-w-md">
+                    Tecnología que identifica rostros de forma rápida, segura y precisa.
+                </p>
+                <a href="#" class="inline-block bg-primary text-white font-medium px-6 py-2.5 md:px-8 md:py-3 rounded-full hover:bg-blue-700 transition shadow-lg">
+                    Conoce más
+                </a>
+            </div>
+            <!-- Imagen (Oculta en móvil, visible en escritorio) -->
+            <div class="hidden md:flex md:w-1/2 justify-center">
+                <img src="img/rostro-reconocimiento.jpg" alt="Rostro con escaneo biométrico" class="max-w-full h-auto rounded-lg shadow-2xl">
+            </div>
+        </div>
+        
+        <!-- Fondo desenfocado sutil para móvil para dar profundidad, opcional -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 md:hidden pointer-events-none"></div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS (TARJETAS) -->
+    <section class="bg-white py-12 md:py-24 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            
+            <!-- Tarjeta 1: Detección Facial -->
+            <div class="bg-cardBg rounded-2xl p-8 md:p-10 flex flex-col items-center text-center shadow-sm hover:shadow-lg transition duration-300 border border-gray-100">
+                <img src="img/icon-huella.svg" alt="Icono Detección" class="h-12 md:h-16 mb-4 md:mb-6">
+                <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Detección Facial</h3>
+                <p class="text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-xs">
+                    Identifica rostros en tiempo real con alta precisión.
+                </p>
+                <a href="#" class="bg-primary text-white font-medium px-5 py-2 md:px-6 md:py-2.5 rounded hover:bg-blue-700 transition flex items-center gap-2 text-sm md:text-base">
+                    Ver más <span>&rarr;</span>
+                </a>
+            </div>
+
+            <!-- Tarjeta 2: Seguridad Inteligente (Oculta en móvil si quieres que quede exactamente como la imagen de referencia, pero generalmente se muestran ambas apiladas. Aquí la dejo visible apilada). -->
+            <div class="bg-cardBg rounded-2xl p-8 md:p-10 flex flex-col items-center text-center shadow-sm hover:shadow-lg transition duration-300 border border-gray-100">
+                <img src="img/icon-seguridad.svg" alt="Icono Seguridad" class="h-12 md:h-16 mb-4 md:mb-6">
+                <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">Seguridad Inteligente</h3>
+                <p class="text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-xs">
+                    Protege tu información con tecnología avanzada.
+                </p>
+                <a href="#" class="bg-primary text-white font-medium px-5 py-2 md:px-6 md:py-2.5 rounded hover:bg-blue-700 transition flex items-center gap-2 text-sm md:text-base">
+                    Ver más <span>&rarr;</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="bg-darkBg text-gray-400 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            
+            <!-- Logo Footer (Oculto en móvil según el diseño) -->
+            <div class="hidden md:flex items-center gap-2">
+                <img src="img/logo-faceid.svg" alt="FaceID Logo" class="h-8">
+                <span class="text-xl font-bold text-white tracking-tight">FaceID</span>
+            </div>
+
+            <!-- Enlaces (Ocultos en móvil según el diseño) -->
+            <div class="hidden md:flex gap-6 text-sm">
+                <a href="#" class="hover:text-white transition">Inicio</a>
+                <a href="#" class="hover:text-white transition">Servicios</a>
+                <a href="#" class="hover:text-white transition">Contacto</a>
+            </div>
+            
+            <!-- Redes Sociales (Visibles y centradas en móvil) -->
+            <div class="flex justify-center gap-4 text-xl md:text-lg text-primary md:text-gray-400">
+                <a href="#" class="bg-blue-900/50 md:bg-transparent p-2 rounded-full hover:text-white transition w-10 h-10 flex items-center justify-center"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="bg-blue-900/50 md:bg-transparent p-2 rounded-full hover:text-white transition w-10 h-10 flex items-center justify-center"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="bg-blue-900/50 md:bg-transparent p-2 rounded-full hover:text-white transition w-10 h-10 flex items-center justify-center"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="bg-blue-900/50 md:bg-transparent p-2 rounded-full hover:text-white transition w-10 h-10 flex items-center justify-center"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-xs md:text-sm text-gray-400">
+                &copy; 2026 FaceID. Todos los derechos reservados.
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Script para el menú móvil -->
+    <script>
+        const btnMenu = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
